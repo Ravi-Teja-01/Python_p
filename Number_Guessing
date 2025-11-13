@@ -1,0 +1,21 @@
+import random         
+n = random.randint(1,99)
+Guess =int(input("Enter the Guessing number:"))
+count = 5
+while Guess != n:
+    print(count-1,"Attempts you have")
+    if Guess > n:
+        print("Enter lower value ")
+    elif Guess < n:
+        print("Enter higher number")
+    print("-"*50)
+    Guess = int(input("Enter the number:"))
+    count -= 1
+    if count == 1:
+        print("0 attempts left".center(20))
+        print("You loose")
+        print("correct answer is" , n)
+        break
+    
+else:
+    print("You won!🥳")
