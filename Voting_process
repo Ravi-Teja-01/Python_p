@@ -1,0 +1,49 @@
+nominee1 = input("Enter the name of nominee:")
+nominee2 = input("Enter the name of nominee:")
+
+#Intitally bothe nominee have votes count is zero
+nm1_votes = 0
+nm2_votes = 0
+
+#Every voter should have a unique id to participate in voting
+voter_id = [1,2,3,4,5,6,7,8,9,10]
+
+no_of_voters = len(voter_id)
+
+while True:
+    if voter_id == []:
+        print("Voting session is voer!!")
+        if nm1_votes > nm2_votes:
+            percentage = (nm1_votes/no_of_voters)*100
+            print(nominee1,"has won the election with", percentage, " % of votes")
+            break
+        elif nm2_votes > nm1_votes:
+            percentage = (nm2_votes/no_of_voters)*100
+            print(nominee2,"has won the election with", percentage ," % of votes")
+            break
+        else:
+            print("Both have equal number of votes")
+            break
+
+    voter = int(input("Enter your voter ID:"))
+    if voter in voter_id:
+        print("Your are eligible to vote")
+        voter_id.remove(voter)
+        print("--------------------------------")
+        print("To give vote to",nominee1,"press 1")
+        print("To give vote to", nominee2, "press 2")
+        print("---------------------------------")
+        vote = int(input("Enter your precious vote:"))
+        if vote == 1:
+            nm1_votes += 1
+            print(nominee1, "thanks for giving valuable vote to me")
+        elif vote == 2:
+            nm2_votes += 1
+            print(nominee2,"thanks for giving your valuable vote to me")
+        elif vote >2:
+            print("Check your pressed key!!")
+        else:
+            print("You are not a eligible to vote")
+    else:
+        print("You already voted or not eligible for voting")
+
